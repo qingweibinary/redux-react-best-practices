@@ -27,3 +27,6 @@ There are a few more rules to be consider, kindly check link below.
 
 ## 5. Data conversion in ActionCreators
 Actions being the bridge of your application to the outside world should in charge in reshaping data shape if necessary, for example if external api return an array `['Female', '178cm', '55kg']` , what you want to store is `{gender: 'F', height: '178', weight: '55'}`, this conversion should happen in ActionCreators.
+
+## 6. Selectors should follow SRP
+Selectors should only have 1 reason to be triggered, if selectors have more than 1 reason to be triggered, some of the computation would be meaningless, it will not affect program correctness if things are pure, but it would means unnecesary computations.
