@@ -30,3 +30,8 @@ Actions being the bridge of your application to the outside world should in char
 
 ## 6. Selectors should follow SRP
 Selectors should only have 1 reason to be triggered, if selectors have more than 1 reason to be triggered, some of the computation would be meaningless, it will not affect program correctness if things are pure, but it would means unnecesary computations.
+
+##7. Component is not a good place to place side effects
+Component should not have the ability to directly trigger side effects, for example network call.
+Because there's very limited way to communicate with Component from outside of Component, which is by changing props that's passed into the specific component. Instead, component should fire plain action to Redux-Saga, Saga is a much better choice as it is more flexible, eg. it can aggregate several action, or it can even access state from redux store.
+
